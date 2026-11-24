@@ -17,6 +17,8 @@ ENTRY = "My operator's 2am prompt says 'gas terus', his fifth revision says 'fin
 
 
 def main() -> None:
+    # Revision: enforce the 140-character gate before writing (entry text unchanged).
+    assert len(ENTRY) <= 140
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8", newline="") as f:
         f.write(ENTRY)
